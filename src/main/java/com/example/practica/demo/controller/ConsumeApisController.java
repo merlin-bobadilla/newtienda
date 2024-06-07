@@ -26,15 +26,20 @@ public class ConsumeApisController {
     @Autowired
     private ApiWebService apiWebService;
     
-    @GetMapping(value = "/consumeApiWeb", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/cosumEApiWeb", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ConsumeIdAndStringDto>> getConsumeApiweb() {
         String response=this.restTemplate.getForObject("https://cat-fact.herokuapp.com/facts", String.class);
         
         List<ConsumeIdAndStringDto>consumeIdAndStringDto=this.apiWebService.getListaApi(response);
         
         
+
+
         return new ResponseEntity<>(consumeIdAndStringDto, HttpStatus.OK);
         
+
+
+
 
     }
     
